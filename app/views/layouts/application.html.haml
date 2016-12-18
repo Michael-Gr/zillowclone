@@ -25,12 +25,22 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          = link_to "#", class: "navbar-brand" do
-            Zillowclone
+          = link_to listings_path, class: "navbar-brand" do
+            Zillow
         #navbar.collapse.navbar-collapse
           %ul.nav.navbar-nav
-            %li.active
-              = link_to "Home", "#"
+            %li
+              = link_to "Houses", listings_path
+            %li
+              = link_to "New Listing", new_listing_path
+
+          %ul.nav.navbar-nav.navbar-right
+            %li
+              = link_to "Have an account? Log in", "#"
+            %li
+              = link_to "Don't have an account? Sign up", "#"
+
+
     .container
       - flash.each do |name, msg|
         = content_tag :div, class: "alert alert-#{name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do

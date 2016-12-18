@@ -1,0 +1,56 @@
+.jumbotron
+  %h1 Find your way home
+  %ul.nav.nav-pills{:role => "tablist"}
+    %li.active{:role => "presentation"}
+      %a{:href => "#"} Buy
+    %li{:role => "presentation"}
+      %a{:href => "#"} Rent
+    %li{:role => "presentation"}
+      %a{:href => "#"} Sell
+    %li{:role => "presentation"}
+      %a{:href => "#"} Zestimate
+
+  %form
+    .form-group
+      %input.form-control{:placeholder => "Enter an address, neighborhood, city or ZIP code", :type => "text"}/
+      %button.btn.btn-default{:type => "submit"} Search
+
+.page-header
+  %h1 Houses
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th Address
+        %th Bedrooms
+        %th Bathrooms
+        %th Size
+        %th Price
+        %th Description
+        %th Parking
+        %th Image
+        %th Agent
+        %th{colspan: 3}
+
+    %tbody
+      - @listings.each do |listing|
+        %tr
+          %td= listing.address
+          %td= listing.bedrooms
+          %td= listing.bathrooms
+          %td= listing.size
+          %td= listing.price
+          %td= listing.description
+          %td= listing.parking
+          %td= listing.image
+          %td= listing.agent
+          %td
+            = link_to listing do
+              %span.glyphicon.glyphicon-ok
+          %td
+            = link_to edit_listing_path(listing) do
+              %span.glyphicon.glyphicon-pencil
+          %td
+            = link_to listing, data: { confirm: 'Are you sure?' }, method: :delete do
+              %span.glyphicon.glyphicon-remove
