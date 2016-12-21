@@ -22,6 +22,10 @@ gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 
+# Omniauth
+gem 'omniauth'
+gem 'omniauth-github'
+
 # Add and save images
 gem "refile", github: "gstark/refile", branch: "updates-for-rails-5", require: "refile/rails"
 gem "refile-postgres"

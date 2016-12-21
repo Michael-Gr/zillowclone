@@ -1,19 +1,21 @@
-.jumbotron
-  %h1 Find your way home
-  %ul.nav.nav-pills{:role => "tablist"}
-    %li.active{:role => "presentation"}
-      %a{:href => "#"} Buy
-    %li{:role => "presentation"}
-      %a{:href => "#"} Rent
-    %li{:role => "presentation"}
-      %a{:href => "#"} Sell
-    %li{:role => "presentation"}
-      %a{:href => "#"} Zestimate
+.jumbotron{:style => "background-image: url(http://newyorkpanorama.com/blog/wp-content/uploads/2008/02/2008-02-W38-Street-w1800.jpg); background-size: 100%;"}
+  %h1{:style => "color:rgb(255,255,255);"}  Find your way home
+  %ul.nav.nav-tabs
+    %li.active
+      %a{"aria-expanded" => "true", "data-toggle" => "tab", :href => "#buy-home-tab"} Buy
+    %li
+      %a{"aria-expanded" => "false", "data-toggle" => "tab", :href => "#buy-home-tab"} Rent
+    %li
+      %a{"aria-expanded" => "false", "data-toggle" => "tab", :href => "#buy-home-tab"} Sell
+    %li
+      %a{"aria-expanded" => "false", "data-toggle" => "tab", :href => "#buy-home-tab"} Zestimate
 
-  %form
-    .form-group
-      %input.form-control{:placeholder => "Enter an address, neighborhood, city or ZIP code", :type => "text"}/
-      %button.btn.btn-default{:type => "submit"} Search
+  .tab-content
+    #buy-home-tab.tab-pane.active{role: "tabpanel"}
+      %form
+        .form-group
+          %input.form-control{:placeholder => "Enter an address, neighborhood, city or ZIP code", :type => "text"}/
+          %button.btn.btn-primary{:type => "submit"} Search
 
 .page-header
   %h1 Houses

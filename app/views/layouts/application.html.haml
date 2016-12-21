@@ -35,11 +35,14 @@
               = link_to "New Listing", new_listing_path
 
           %ul.nav.navbar-nav.navbar-right
-            %li
-              = link_to "Have an account? Log in", "#"
-            %li
-              = link_to "Don't have an account? Sign up", "#"
-
+            - if current_user
+              %li
+                = link_to "Signed in as: #{current_user.name}", "#"
+              %li
+                = link_to "Not you? Log out", "/logout"
+            - else
+              %li
+                = link_to "Sign in", auth_path(provider: 'github')
 
     .container
       - flash.each do |name, msg|
