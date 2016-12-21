@@ -39,13 +39,14 @@
     .col-sm-10
       = f.text_field :parking, class: 'form-control'
   .form-group
-    = f.label :image, class: 'col-sm-2 control-label'
-    .col-sm-10
-      = f.text_field :image, class: 'form-control'
-  .form-group
     = f.label :agent, class: 'col-sm-2 control-label'
     .col-sm-10
       = f.text_field :agent, class: 'form-control'
+  .form-group
+    = f.label :image, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.attachment_field :image
+
   .form-group
     .col-sm-offset-2.col-sm-10
       = f.submit class: 'btn btn-primary'

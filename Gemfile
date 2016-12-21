@@ -1,7 +1,7 @@
 ruby '2.3.1'
 source 'https://rubygems.org'
 
-
+gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use postgresql as the database for Active Record
@@ -22,6 +22,9 @@ gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 
+# Add and save images
+gem "refile", github: "gstark/refile", branch: "updates-for-rails-5", require: "refile/rails"
+gem "refile-postgres"
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'

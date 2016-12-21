@@ -20,36 +20,42 @@
 
 .row
   - @listings.each do |listing|
-    .col-sm-6.col-md-4
+    .col-sm-6.col-md-3
       .thumbnail
-        %img{:alt => "", :src => "#{listing.image}"}/
+        - if listing.image_id
+          = image_tag attachment_url(listing, :image), size: "484x400"
         .caption
-          %h3= listing.price
-          %p= listing.description
+          %h5
+            %font{:size => "6"}= listing.price
+            = listing.bedrooms
+            •
+            = listing.bathrooms
+            •
+            = listing.size
           %p
-            %a.btn.btn-primary{:href => "#", :role => "button"} Button
-            %a.btn.btn-default{:href => "#", :role => "button"} Button
+            = distance_of_time_in_words_to_now(listing.created_at)
+            •
+            = listing.address
+          %p
+            %a.btn.btn-primary{:href => "/listings/#{listing.id}", :role => "button"} View
 
-.table-responsive
-  %table.table.table-striped.table-bordered.table-hover
-    %tbody
-      - @listings.each do |listing|
-        %tr
-          %td= listing.address
-          %td= listing.bedrooms
-          %td= listing.bathrooms
-          %td= listing.size
-          %td= listing.price
-          %td= listing.description
-          %td= listing.parking
-          %td= listing.image
-          %td= listing.agent
-          %td
-            = link_to listing do
-              %span.glyphicon.glyphicon-ok
-          %td
-            = link_to edit_listing_path(listing) do
-              %span.glyphicon.glyphicon-pencil
-          %td
-            = link_to listing, data: { confirm: 'Are you sure?' }, method: :delete do
-              %span.glyphicon.glyphicon-remove
+-# %a.btn.btn-primary{:href => "#", :role => "button"} Button
+
+-# .table-responsive
+-#   %table.table.table-striped.table-bordered.table-hover
+-#     %tbody
+-#       - @listings.each do |listing|
+-#         %tr
+-#           %td= listing.address
+-#           %td
+-#             = link_to listing do
+-#               %span.glyphicon.glyphicon-ok
+-#           %td
+-#             = link_to edit_listing_path(listing) do
+-#               %span.glyphicon.glyphicon-pencil
+-#           %td
+-#             = link_to listing, data: { confirm: 'Are you sure?' }, method: :delete do
+-#               %span.glyphicon.glyphicon-remove
+-#           %td
+-#             - if listing.image_id
+-#               = image_tag attachment_url(listing, :image), size: "484x400"
